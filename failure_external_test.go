@@ -77,12 +77,6 @@ func TestFailure_Make(t *testing.T) {
 	}, IntsMin(0))
 }
 
-func TestFailure_ExampleParseDate(t *testing.T) {
-	t.Skip()
-
-	Example_parseDate(t)
-}
-
 func TestFailure_ExampleQueue(t *testing.T) {
 	t.Skip()
 

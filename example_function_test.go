@@ -27,7 +27,7 @@ func ParseDate(s string) (int, int, int, error) {
 		return 0, 0, 0, fmt.Errorf("failed to parse year: %v", err)
 	}
 
-	m, err := strconv.Atoi(s[6:7])
+	m, err := strconv.Atoi(s[5:7])
 	if err != nil {
 		return 0, 0, 0, fmt.Errorf("failed to parse month: %v", err)
 	}
@@ -41,7 +41,7 @@ func ParseDate(s string) (int, int, int, error) {
 }
 
 // Rename to TestParseDate to make an actual (failing) test.
-func Example_parseDate(t *testing.T) {
+func TestParseDate(t *testing.T) {
 	rapid.Check(t, func(t *rapid.T, y int, m int, d int) {
 		s := fmt.Sprintf("%04d-%02d-%02d", y, m, d)
 
