@@ -37,7 +37,11 @@ func (q *Queue) Put(i int) {
 }
 
 func (q *Queue) Size() int {
-	return (q.in - q.out) % len(q.buf)
+	if q.in >= q.out {
+		return (q.in - q.out)
+	} else {
+		return (len(q.buf) + q.in - q.out)
+	}
 }
 
 // queueMachine is a description of a rapid state machine for testing Queue
@@ -88,6 +92,6 @@ func (m *queueMachine) put(t *rapid.T, i int) {
 }
 
 // Rename to TestQueue to make an actual (failing) test.
-func Example_queue(t *testing.T) {
+func TestQueue(t *testing.T) {
 	rapid.Check(t, rapid.StateMachine(&queueMachine{}))
 }

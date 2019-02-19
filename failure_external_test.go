@@ -76,9 +76,3 @@ func TestFailure_Make(t *testing.T) {
 		_ = make([]int, n)
 	}, IntsMin(0))
 }
-
-func TestFailure_ExampleQueue(t *testing.T) {
-	t.Skip()
-
-	Example_queue(t)
-}
